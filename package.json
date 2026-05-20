@@ -1,0 +1,31 @@
+{
+  "name": "crypto-signal-agent",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "node src/index.js",
+    "dev": "node --watch src/index.js",
+    "start:x402": "node src/index_x402.mjs",
+    "start:live": "X402_TEST_MODE=false node src/index_x402.mjs"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "dependencies": {
+    "@acedatacloud/x402-client": "^2026.507.2",
+    "@coral-xyz/anchor": "^0.32.1",
+    "@oobe-protocol-labs/synapse-sap-sdk": "^0.17.0",
+    "@solana/web3.js": "^1.98.4",
+    "axios": "^1.16.1",
+    "bs58": "^6.0.0",
+    "dotenv": "^17.4.2",
+    "node-cron": "^4.2.1"
+  },
+  "devDependencies": {
+    "@types/node": "^25.9.1",
+    "ts-node": "^10.9.2",
+    "typescript": "^6.0.3"
+  }
+}
