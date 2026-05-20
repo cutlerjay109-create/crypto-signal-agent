@@ -1,4 +1,12 @@
 node_modules/
 .env
-logs/
+
 reports/output/
+check_account.js
+debug_stats.js
+init_pricing.js
+init_vault.js
+close_agent.js
+test_x402.mjs
+test_x402_live.mjs
+test_workflow_x402.mjs
