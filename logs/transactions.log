@@ -634,3 +634,153 @@
 [2026-05-22T12:24:37.359Z] [INFO] Explorer: https://explorer.oobeprotocol.ai/agents/HXyv3RHndummXVjMcXTRaQo1L1sQtxutQtbgfnVC2Hxg
 [2026-05-22T12:24:37.360Z] [INFO] Press CTRL+C to stop
 [2026-05-22T12:24:37.361Z] [INFO] ==================================================
+[2026-05-22T14:57:02.013Z] [INFO] ==================================================
+[2026-05-22T14:57:02.019Z] [INFO]   CRYPTO SIGNAL AGENT x402 STARTING UP
+[2026-05-22T14:57:02.021Z] [INFO] ==================================================
+[2026-05-22T14:57:02.023Z] [INFO] Mode: LIVE (USDC x402)
+[2026-05-22T14:57:02.024Z] [INFO] Schedule: Every 360 minutes
+[2026-05-22T14:57:02.025Z] [INFO] Wallet: HXyv3RHndummXVjMcXTRaQo1L1sQtxutQtbgfnVC2Hxg
+[2026-05-22T14:57:02.027Z] [INFO] Registering agent on SAP mainnet...
+[2026-05-22T14:57:02.033Z] [INFO] Starting agent registration on SAP mainnet...
+[2026-05-22T14:57:02.239Z] [INFO] Wallet loaded: HXyv3RHndummXVjMcXTRaQo1L1sQtxutQtbgfnVC2Hxg
+[2026-05-22T14:57:03.362Z] [INFO] Agent already registered: HXyv3RHndummXVjMcXTRaQo1L1sQtxutQtbgfnVC2Hxg
+[2026-05-22T14:57:03.363Z] [INFO] Agent: Already registered ✅
+[2026-05-22T14:57:03.364Z] [INFO] Running first cycle immediately...
+[2026-05-22T14:57:03.366Z] [INFO] Fetching live crypto prices from CoinGecko...
+[2026-05-22T14:57:04.279Z] [INFO] Prices - BTC: $76703 | ETH: $2115.58 | SOL: $86.53
+[2026-05-22T14:57:04.290Z] [INFO] Making x402 request to: https://api.acedata.cloud/serp/google
+[2026-05-22T14:57:06.340Z] [INFO] 402 received - processing x402 Solana payment...
+[2026-05-22T14:57:06.341Z] [INFO] Payment required: 0.000952 USDC
+[2026-05-22T14:57:06.841Z] [INFO] USDC payment TX: 5dHwi8Vu3U8WEHoAxuSdrpWev8xHpJ2e5uJk7W8weTnxs6Ug9KavQj3dSR3s8u8UTFnDHhEFCGTsdg57rjmywpNx
+[2026-05-22T14:57:06.843Z] [INFO] x402 USDC payment sent on-chain ✅
+[2026-05-22T14:57:06.844Z] [INFO] Payment header signed ✅
+[2026-05-22T14:57:08.341Z] [INFO] x402 request complete - status: 200
+[2026-05-22T14:57:08.347Z] [INFO] Sending news to Gemini via x402...
+[2026-05-22T14:57:08.349Z] [INFO] Making x402 request to: https://api.acedata.cloud/v1/chat/completions
+[2026-05-22T14:57:09.955Z] [INFO] 402 received - processing x402 Solana payment...
+[2026-05-22T14:57:09.956Z] [INFO] Payment required: 0.095215 USDC
+[2026-05-22T14:57:10.382Z] [INFO] USDC payment TX: rKnArtADYr6NyQ6wHtLUfQXCU37Bco8Az8PWns9n8wtjPYUSNEwM5cQtbWsGVmDapfHBMQGFajTVaEKcYP8oArH
+[2026-05-22T14:57:10.383Z] [INFO] x402 USDC payment sent on-chain ✅
+[2026-05-22T14:57:10.384Z] [INFO] Payment header signed ✅
+[2026-05-22T14:57:25.368Z] [INFO] x402 request complete - status: 200
+[2026-05-22T14:57:25.369Z] [INFO] Gemini x402 response: {"BTC":{"sentiment":"neutral","score":50},"ETH":{"sentiment":"neutral","score":50},"SOL":{"sentiment":"bullish","score":70},"overall":"neutral","confidence":55}
+[2026-05-22T14:57:25.370Z] [INFO] Sentiment: neutral (55%)
+[2026-05-22T14:57:25.371Z] [INFO] Generating signals via GPT-4o-mini x402...
+[2026-05-22T14:57:25.373Z] [INFO] Making x402 request to: https://api.acedata.cloud/v1/chat/completions
+[2026-05-22T14:57:27.709Z] [INFO] 402 received - processing x402 Solana payment...
+[2026-05-22T14:57:27.710Z] [INFO] Payment required: 0.095215 USDC
+[2026-05-22T14:57:28.576Z] [INFO] USDC payment TX: 2n5rn11T95wTGYcrbD3uKqwjNiAyBi1sfBYfvMTifpwkQTARh94GTmTMiJhwKuMA3e5HVjueEcx6sahKd3jw2feB
+[2026-05-22T14:57:28.577Z] [INFO] x402 USDC payment sent on-chain ✅
+[2026-05-22T14:57:28.577Z] [INFO] Payment header signed ✅
+[2026-05-22T14:57:31.766Z] [INFO] x402 request complete - status: 200
+[2026-05-22T14:57:31.767Z] [INFO] GPT response for BTC: {"direction":"SIDEWAYS","confidence":70,"reason":"The neutral trend score and overall market strength suggest stability in BTC price with little significant movement."}
+[2026-05-22T14:57:31.768Z] [INFO] Signal for BTC: HOLD (70%)
+[2026-05-22T14:57:31.769Z] [INFO] Making x402 request to: https://api.acedata.cloud/v1/chat/completions
+[2026-05-22T14:57:32.932Z] [INFO] 402 received - processing x402 Solana payment...
+[2026-05-22T14:57:32.932Z] [INFO] Payment required: 0.095215 USDC
+[2026-05-22T14:57:33.787Z] [INFO] USDC payment TX: 4Etv9pxzMfmBrNiWDV31Rp6vY1Sm7aa3iGE9vS4dcmMrQuoodEr3Xf2CooYH4QpcE6KiYXGoknQPDiiHzgc8QPWq
+[2026-05-22T14:57:33.788Z] [INFO] x402 USDC payment sent on-chain ✅
+[2026-05-22T14:57:33.789Z] [INFO] Payment header signed ✅
+[2026-05-22T14:57:44.022Z] [INFO] x402 request complete - status: 200
+[2026-05-22T14:57:44.029Z] [INFO] GPT response for ETH: {"direction":"SIDEWAYS","confidence":65,"reason":"ETH shows minimal 24h change with a neutral trend score and overall market strength slightly above neutral, indicating sideways movement."}
+[2026-05-22T14:57:44.030Z] [INFO] Signal for ETH: HOLD (65%)
+[2026-05-22T14:57:44.031Z] [INFO] Making x402 request to: https://api.acedata.cloud/v1/chat/completions
+[2026-05-22T14:57:46.644Z] [INFO] 402 received - processing x402 Solana payment...
+[2026-05-22T14:57:46.645Z] [INFO] Payment required: 0.095215 USDC
+[2026-05-22T14:57:47.491Z] [INFO] USDC payment TX: 5SskFZa31PwYvzVg3RriMjRrF5orUjXK8TAfHFMQkXQwnoCKcLdSFzwCzRXFoaRHQgj19qS3cdPggHRkMy3c4kAJ
+[2026-05-22T14:57:47.492Z] [INFO] x402 USDC payment sent on-chain ✅
+[2026-05-22T14:57:47.493Z] [INFO] Payment header signed ✅
+[2026-05-22T14:57:52.275Z] [INFO] x402 request complete - status: 200
+[2026-05-22T14:57:52.275Z] [INFO] GPT response for SOL: {"direction":"UP","confidence":75,"reason":"SOL shows a positive 24h change, strong bullish trend score, while the overall market is neutral, indicating likely upward movement."}
+[2026-05-22T14:57:52.276Z] [INFO] Signal for SOL: BUY (75%)
+[2026-05-22T14:57:52.278Z] [INFO] Verifying signal for BTC...
+[2026-05-22T14:57:52.278Z] [INFO] Signal verified for BTC - HOLD | TP1: $78018.57 | TP2: $79334.15 | SL: $75387.43 | RR: 1
+[2026-05-22T14:57:52.279Z] [INFO] Verifying signal for ETH...
+[2026-05-22T14:57:52.279Z] [INFO] Signal verified for ETH - HOLD | TP1: $2150.18 | TP2: $2184.77 | SL: $2080.98 | RR: 1
+[2026-05-22T14:57:52.279Z] [INFO] Verifying signal for SOL...
+[2026-05-22T14:57:52.280Z] [INFO] Signal verified for SOL - BUY | TP1: $88.88 | TP2: $91.23 | SL: $84.33 | RR: 1.07
+[2026-05-22T14:57:52.280Z] [INFO] All signals verified and enhanced successfully
+[2026-05-22T14:57:52.406Z] [INFO] Signal report saved: signal_2026-05-22T14-57-52.txt
+[2026-05-22T14:57:52.408Z] [INFO] Starting scheduler - every 360 minutes...
+[2026-05-22T14:57:52.409Z] [INFO] ==================================================
+[2026-05-22T14:57:52.409Z] [INFO] AGENT IS NOW RUNNING AUTONOMOUSLY
+[2026-05-22T14:57:52.409Z] [INFO] Mode: LIVE x402 MODE
+[2026-05-22T14:57:52.410Z] [INFO] Schedule: Every 360 minutes
+[2026-05-22T14:57:52.410Z] [INFO] Explorer: https://explorer.oobeprotocol.ai/agents/HXyv3RHndummXVjMcXTRaQo1L1sQtxutQtbgfnVC2Hxg
+[2026-05-22T14:57:52.410Z] [INFO] Press CTRL+C to stop
+[2026-05-22T14:57:52.410Z] [INFO] ==================================================
+[2026-05-22T15:15:25.746Z] [INFO] ==================================================
+[2026-05-22T15:15:25.750Z] [INFO]   CRYPTO SIGNAL AGENT x402 STARTING UP
+[2026-05-22T15:15:25.750Z] [INFO] ==================================================
+[2026-05-22T15:15:25.751Z] [INFO] Mode: LIVE (USDC x402)
+[2026-05-22T15:15:25.752Z] [INFO] Schedule: Every 360 minutes
+[2026-05-22T15:15:25.752Z] [INFO] Wallet: HXyv3RHndummXVjMcXTRaQo1L1sQtxutQtbgfnVC2Hxg
+[2026-05-22T15:15:25.755Z] [INFO] Registering agent on SAP mainnet...
+[2026-05-22T15:15:25.757Z] [INFO] Starting agent registration on SAP mainnet...
+[2026-05-22T15:15:25.905Z] [INFO] Wallet loaded: HXyv3RHndummXVjMcXTRaQo1L1sQtxutQtbgfnVC2Hxg
+[2026-05-22T15:15:27.032Z] [INFO] Agent already registered: HXyv3RHndummXVjMcXTRaQo1L1sQtxutQtbgfnVC2Hxg
+[2026-05-22T15:15:27.033Z] [INFO] Agent: Already registered ✅
+[2026-05-22T15:15:27.035Z] [INFO] Running first cycle immediately...
+[2026-05-22T15:15:27.039Z] [INFO] Fetching live crypto prices from CoinGecko...
+[2026-05-22T15:15:27.878Z] [INFO] Prices - BTC: $76728 | ETH: $2116.21 | SOL: $86.54
+[2026-05-22T15:15:27.888Z] [INFO] Making x402 request to: https://api.acedata.cloud/serp/google
+[2026-05-22T15:15:30.194Z] [INFO] 402 received - processing x402 Solana payment...
+[2026-05-22T15:15:30.195Z] [INFO] Payment required: 0.000952 USDC
+[2026-05-22T15:15:30.740Z] [INFO] USDC payment TX: 39grGYDE22L57j8d3JzVHtVr1uJZwnt4dXxf5h2KyPZfuLgxJs836F4ZvUdRFoB2LpECG6jKsTov2sQ6a8uXZNid
+[2026-05-22T15:15:30.741Z] [INFO] x402 USDC payment sent on-chain ✅
+[2026-05-22T15:15:30.742Z] [INFO] Payment header signed ✅
+[2026-05-22T15:15:31.724Z] [INFO] x402 request complete - status: 200
+[2026-05-22T15:15:31.726Z] [INFO] Sending news to Gemini via x402...
+[2026-05-22T15:15:31.727Z] [INFO] Making x402 request to: https://api.acedata.cloud/v1/chat/completions
+[2026-05-22T15:15:34.424Z] [INFO] 402 received - processing x402 Solana payment...
+[2026-05-22T15:15:34.425Z] [INFO] Payment required: 0.095215 USDC
+[2026-05-22T15:15:34.905Z] [INFO] USDC payment TX: 3zCTLBQ3ShCwSnAe2zEnoK39sxoJ8Db1xRoCgYpxjJQppGRitgFGsGVVsWAstbQ4mQSjGtv8RW7qgLKUQYTv2LLK
+[2026-05-22T15:15:34.907Z] [INFO] x402 USDC payment sent on-chain ✅
+[2026-05-22T15:15:34.908Z] [INFO] Payment header signed ✅
+[2026-05-22T15:15:39.411Z] [INFO] x402 request complete - status: 200
+[2026-05-22T15:15:39.413Z] [INFO] Gemini x402 response: {"BTC":{"sentiment":"neutral","score":50},"ETH":{"sentiment":"neutral","score":50},"SOL":{"sentiment":"bullish","score":70},"overall":"neutral","confidence":60}
+[2026-05-22T15:15:39.414Z] [INFO] Sentiment: neutral (60%)
+[2026-05-22T15:15:39.416Z] [INFO] Generating signals via GPT-4o-mini x402...
+[2026-05-22T15:15:39.417Z] [INFO] Making x402 request to: https://api.acedata.cloud/v1/chat/completions
+[2026-05-22T15:15:42.413Z] [INFO] 402 received - processing x402 Solana payment...
+[2026-05-22T15:15:42.414Z] [INFO] Payment required: 0.095215 USDC
+[2026-05-22T15:15:43.246Z] [INFO] USDC payment TX: 3AMTxK3HS3AjxGyDvtjk226cyFUqTehcwDbjgtvFQat287yFJXLoFUkpXCaz8WRGVqHBfYQknE4Rfhz61rqexfGe
+[2026-05-22T15:15:43.247Z] [INFO] x402 USDC payment sent on-chain ✅
+[2026-05-22T15:15:43.247Z] [INFO] Payment header signed ✅
+[2026-05-22T15:15:46.576Z] [INFO] x402 request complete - status: 200
+[2026-05-22T15:15:46.577Z] [INFO] GPT response for BTC: {"direction":"SIDEWAYS","confidence":70,"reason":"The neutral trend score and minor price change indicate a lack of clear movement in either direction."}
+[2026-05-22T15:15:46.579Z] [INFO] Signal for BTC: HOLD (70%)
+[2026-05-22T15:15:46.579Z] [INFO] Making x402 request to: https://api.acedata.cloud/v1/chat/completions
+[2026-05-22T15:15:49.376Z] [INFO] 402 received - processing x402 Solana payment...
+[2026-05-22T15:15:49.377Z] [INFO] Payment required: 0.095215 USDC
+[2026-05-22T15:15:50.153Z] [INFO] USDC payment TX: 3MGcBKx5fQJBibXR1DKqx7v9VWvusKnL6gThj7GnRovRU1dQcs8wHuCLHo4BL52N5x6FUfsUGGmtLcGibRkGdohB
+[2026-05-22T15:15:50.154Z] [INFO] x402 USDC payment sent on-chain ✅
+[2026-05-22T15:15:50.154Z] [INFO] Payment header signed ✅
+[2026-05-22T15:15:53.215Z] [INFO] x402 request complete - status: 200
+[2026-05-22T15:15:53.216Z] [INFO] GPT response for ETH: {"direction":"SIDEWAYS","confidence":70,"reason":"The neutral trend score and overall market strength suggest stability without significant movement in either direction."}
+[2026-05-22T15:15:53.217Z] [INFO] Signal for ETH: HOLD (70%)
+[2026-05-22T15:15:53.219Z] [INFO] Making x402 request to: https://api.acedata.cloud/v1/chat/completions
+[2026-05-22T15:15:53.571Z] [INFO] 402 received - processing x402 Solana payment...
+[2026-05-22T15:15:53.572Z] [INFO] Payment required: 0.095215 USDC
+[2026-05-22T15:15:53.988Z] [INFO] USDC payment TX: 4VYCXBidrQQtcnVGUXfjWGGhSF8FVnTXjj59SC5XV8ET79YqDUdYcscNYs53YvahyFgBbqG1D5tH17UxKBYJwtoB
+[2026-05-22T15:15:53.989Z] [INFO] x402 USDC payment sent on-chain ✅
+[2026-05-22T15:15:53.990Z] [INFO] Payment header signed ✅
+[2026-05-22T15:15:57.057Z] [INFO] x402 request complete - status: 200
+[2026-05-22T15:15:57.059Z] [INFO] GPT response for SOL: {"direction":"UP","confidence":70,"reason":"The bullish trend score indicates positive momentum despite a neutral overall market."}
+[2026-05-22T15:15:57.060Z] [INFO] Signal for SOL: BUY (70%)
+[2026-05-22T15:15:57.061Z] [INFO] Verifying signal for BTC...
+[2026-05-22T15:15:57.070Z] [INFO] Signal verified for BTC - HOLD | TP1: $78105.79 | TP2: $79483.58 | SL: $75350.21 | RR: 1
+[2026-05-22T15:15:57.071Z] [INFO] Verifying signal for ETH...
+[2026-05-22T15:15:57.072Z] [INFO] Signal verified for ETH - HOLD | TP1: $2155.24 | TP2: $2194.27 | SL: $2077.18 | RR: 1
+[2026-05-22T15:15:57.072Z] [INFO] Verifying signal for SOL...
+[2026-05-22T15:15:57.073Z] [INFO] Signal verified for SOL - BUY | TP1: $88.78 | TP2: $91.02 | SL: $84.43 | RR: 1.06
+[2026-05-22T15:15:57.073Z] [INFO] All signals verified and enhanced successfully
+[2026-05-22T15:15:57.170Z] [INFO] Signal report saved: signal_2026-05-22T15-15-57.txt
+[2026-05-22T15:15:57.171Z] [INFO] Starting scheduler - every 360 minutes...
+[2026-05-22T15:15:57.172Z] [INFO] ==================================================
+[2026-05-22T15:15:57.172Z] [INFO] AGENT IS NOW RUNNING AUTONOMOUSLY
+[2026-05-22T15:15:57.173Z] [INFO] Mode: LIVE x402 MODE
+[2026-05-22T15:15:57.173Z] [INFO] Schedule: Every 360 minutes
+[2026-05-22T15:15:57.173Z] [INFO] Explorer: https://explorer.oobeprotocol.ai/agents/HXyv3RHndummXVjMcXTRaQo1L1sQtxutQtbgfnVC2Hxg
+[2026-05-22T15:15:57.173Z] [INFO] Press CTRL+C to stop
+[2026-05-22T15:15:57.174Z] [INFO] ==================================================
