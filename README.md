@@ -222,7 +222,11 @@ We reported this bug to @OOBEonSol with full logs and are awaiting a fix.
 | Sentiment Analysis | Ace Data Cloud Gemini 2.5 Flash |
 | Signal Generation | Ace Data Cloud GPT-4o-mini |
 | x402 Payments | @acedatacloud/x402-client Solana USDC |
+| RPC Execution | Synapse RPC (OOBE Protocol) |
+| RPC Execution | Synapse RPC (OOBE Protocol) |
 | Price Data | CoinGecko API |
+| Solana RPC | Synapse RPC — used for all on-chain execution |
+| Solana RPC | Synapse RPC — used for all on-chain execution |
 | Blockchain | Solana Mainnet |
 | Language | Node.js |
 
