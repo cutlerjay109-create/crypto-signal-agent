@@ -6,7 +6,10 @@ import { createRequire } from 'module';
 const require = createRequire(import.meta.url);
 const { log } = require('../utils/logger.js');
 
-const PUBLIC_RPC = 'https://api.mainnet-beta.solana.com';
+// Use Synapse RPC for execution as required by bounty
+// Falls back to public RPC if Synapse RPC is unavailable
+const SYNAPSE_RPC = process.env.SYNAPSE_RPC_URL || 'https://api.mainnet-beta.solana.com';
+const PUBLIC_RPC = SYNAPSE_RPC;
 const TEST_MODE = process.env.X402_TEST_MODE === 'true';
 let keypair = null;
 
@@ -22,7 +25,9 @@ function getKeypair() {
 export async function makeX402Request(url, options = {}) {
   try {
     const kp = getKeypair();
-    const connection = new Connection(PUBLIC_RPC, 'confirmed');
+    // Try Synapse RPC first, fall back to public RPC
+    let rpcUrl = process.env.SYNAPSE_RPC_URL || 'https://api.mainnet-beta.solana.com';
+    const connection = new Connection(rpcUrl, 'confirmed');
 
     // TEST MODE - use credits instead of USDC
     if(TEST_MODE) {
