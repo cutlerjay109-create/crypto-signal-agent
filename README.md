@@ -51,14 +51,14 @@ This project submits for **both categories**:
 ```
 TRIGGER (Every 6 hours — fully automated)
          ↓
-Step 1: Tool Discovery via SAP network
+Step 1: SAP Network + Synapse Sentinel called (every cycle)
          ↓
-Step 2: Synapse Sentinel called (every cycle)
+Step 2: CoinGecko → Live prices BTC/ETH/SOL (free)
          ↓
 Step 3: Google SERP API → Fetch crypto news for BTC/ETH/SOL
          x402 USDC payment via Synapse RPC → 0.000952 USDC
          ↓
-Step 4: CoinGecko → Live prices BTC/ETH/SOL (free)
+Step 4: Gemini 2.5 Flash → Sentiment analysis of news
          ↓
 Step 5: Gemini 2.5 Flash → Sentiment analysis of news
          x402 USDC payment via Synapse RPC → 0.095215 USDC
