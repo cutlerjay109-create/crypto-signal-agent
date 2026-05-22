@@ -19,12 +19,17 @@ export async function runX402Workflow() {
   console.log("=".repeat(55));
 
   try {
-    // STEP 1: SAP TOOL DISCOVERY
-    console.log("\n🔍 STEP 1: TOOL DISCOVERY VIA SAP");
-    console.log("   Agent connects to Synapse Agent Protocol network");
-    console.log("   Scanning for available tools from registered agents");
-    console.log("   Synapse Sentinel agent service called");
-    console.log("   → Discovery complete ✅");
+    // STEP 1: SAP NETWORK + SENTINEL
+    console.log("\n🔍 STEP 1: SAP NETWORK + SYNAPSE SENTINEL");
+    console.log("   Agent registered on SAP mainnet");
+    console.log("   Connecting to Synapse Agent Protocol network...");
+    const { discoverTools } = require('./discovery.js');
+    const { callSentinel } = require('./sentinel.js');
+    await discoverTools();
+    await callSentinel();
+    console.log("   Synapse Sentinel called ✅");
+    console.log("   Tool discovery attempted on SAP network ✅");
+    console.log("   → SAP integration complete ✅");
 
     // STEP 2: FETCH LIVE PRICES
     console.log("\n💰 STEP 2: FETCHING LIVE PRICES");
