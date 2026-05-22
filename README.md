@@ -256,6 +256,8 @@ crypto-signal-agent/
 ├── config/
 │   ├── sap.config.js            # SAP configuration
 │   └── acedata.config.js        # Ace Data Cloud configuration
+├── close_agent_fixed.js         # Script to close SAP agent and recover SOL
+├── close_vault.js               # Script to close vault (run before close_agent)
 └── README.md
 ```
 
@@ -313,6 +315,18 @@ Right: 11111111111111111111111111111111
 **Cause:** SDK v0.17.0 IDL does not match the deployed SAP program on-chain. The SDK passes `agentStats` at account position 3 but the deployed program expects `systemProgram` there. This affects `createEscrowV2`, `updateAgent`, and `closeAgent`.
 
 **Status:** Reported to @OOBEonSol. Awaiting SDK fix.
+
+### How To Close Your Agent And Recover SOL
+
+If you need to close your agent and recover staked SOL:
+
+```bash
+# Step 1: Close the vault first
+node close_vault.js
+
+# Step 2: Close the agent and recover SOL
+AGENT_CLOSE_CONFIRM=YES node close_agent_fixed.js
+```
 
 ### 2. Explorer Not Showing Registration
 
