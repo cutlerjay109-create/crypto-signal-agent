@@ -27,7 +27,7 @@ export async function makeX402Request(url, options = {}) {
     const kp = getKeypair();
     // Try Synapse RPC first, fall back to public RPC
     let rpcUrl = process.env.SYNAPSE_RPC_URL || 'https://api.mainnet-beta.solana.com';
-    const connection = new Connection(rpcUrl, 'confirmed');
+    const connection = new Connection(rpcUrl, { commitment: 'confirmed', wsEndpoint: undefined });
 
     // TEST MODE - use credits instead of USDC
     if(TEST_MODE) {
@@ -36,7 +36,7 @@ export async function makeX402Request(url, options = {}) {
         ...options,
         headers: {
           'Content-Type': 'application/json',
-          'Authorization': 'Bearer ' + process.env.ACEDATA_API_KEY,
+          // No auth header - let x402 handle payment
           ...options.headers,
         },
       });
@@ -51,7 +51,7 @@ export async function makeX402Request(url, options = {}) {
       ...options,
       headers: {
         'Content-Type': 'application/json',
-        'Authorization': 'Bearer ' + process.env.ACEDATA_API_KEY,
+        // No auth header - let x402 handle payment
         ...options.headers,
       },
     });
@@ -88,13 +88,13 @@ export async function makeX402Request(url, options = {}) {
         } else {
           tx.partialSign(kp);
         }
-        const sig = await connection.sendRawTransaction(tx.serialize(), {
-          skipPreflight: false,
-          maxRetries: 3,
+        const pubConn = new Connection('https://api.mainnet-beta.solana.com', 'confirmed');
+        const sig = await pubConn.sendRawTransaction(tx.serialize(), {
+          skipPreflight: true,
+          maxRetries: 5,
         });
         log(`USDC payment TX: ${sig}`);
-        await connection.confirmTransaction(sig, 'confirmed');
-        log(`x402 USDC payment confirmed on-chain ✅`);
+        log(`x402 USDC payment sent on-chain ✅`);
         return { signature: sig };
       },
     };
@@ -108,9 +108,10 @@ export async function makeX402Request(url, options = {}) {
       ...options,
       headers: {
         'Content-Type': 'application/json',
-        'Authorization': 'Bearer ' + process.env.ACEDATA_API_KEY,
+        // No auth header - let x402 handle payment
         ...options.headers,
         'X-PAYMENT': paymentHeader,
+        'Authorization': 'Bearer ' + process.env.ACEDATA_API_KEY,
       },
     });
 
