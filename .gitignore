@@ -1,7 +1,7 @@
 node_modules/
 .env
 
-reports/output/
+
 check_account.js
 debug_stats.js
 init_pricing.js
@@ -10,3 +10,14 @@ close_agent.js
 test_x402.mjs
 test_x402_live.mjs
 test_workflow_x402.mjs
+check_account.js
+check_vault.js
+close_agent_fixed.js
+close_agent.js
+close_vault.js
+debug_stats.js
+init_pricing.js
+init_vault.js
+test_workflow_x402.mjs
+test_x402_live.mjs
+test_x402.mjs
