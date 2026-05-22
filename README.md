@@ -59,22 +59,20 @@ Step 3: Google SERP API → Fetch crypto news for BTC/ETH/SOL
          x402 USDC payment via Synapse RPC → 0.000952 USDC
          ↓
 Step 4: Gemini 2.5 Flash → Sentiment analysis of news
-         ↓
-Step 5: Gemini 2.5 Flash → Sentiment analysis of news
          x402 USDC payment via Synapse RPC → 0.095215 USDC
          ↓
-Step 6: GPT-4o-mini → Generate BUY/SELL/HOLD signal for BTC
+Step 5: GPT-4o-mini → Generate BUY/SELL/HOLD signal for BTC
          x402 USDC payment via Synapse RPC → 0.095215 USDC
          ↓
-Step 7: GPT-4o-mini → Generate BUY/SELL/HOLD signal for ETH
+Step 6: GPT-4o-mini → Generate BUY/SELL/HOLD signal for ETH
          x402 USDC payment via Synapse RPC → 0.095215 USDC
          ↓
-Step 8: GPT-4o-mini → Generate BUY/SELL/HOLD signal for SOL
+Step 7: GPT-4o-mini → Generate BUY/SELL/HOLD signal for SOL
          x402 USDC payment via Synapse RPC → 0.095215 USDC
          ↓
-Step 9: Mathematical verification of TP/SL levels
+Step 8: Mathematical verification of TP/SL levels
          ↓
-Step 10: Signal report saved with timestamp
+Step 9: Signal report saved with timestamp
          ↓
 REPEAT — No human input required at any step
 ```
