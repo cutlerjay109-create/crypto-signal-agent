@@ -1,0 +1,64 @@
+
+===================================
+   CRYPTO SIGNAL AGENT REPORT
+   Fri, 22 May 2026 11:55:28 GMT
+===================================
+
+🟢 BUY SIGNAL — BTC/USDT
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+Entry Price:    $77,335
+Take Profit 1:  $79,049.12 (+2.22%)
+Take Profit 2:  $80,763.24 (+4.43%)
+Stop Loss:      $75,662.74 (-2.16%)
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+Confidence:     60%
+Timeframe:      short term
+24h Change:     0.22%
+Risk/Reward:    1.03
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+Reason:
+Based on market data
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+Powered by Ace Data Cloud AI
+Generated: Fri, 22 May 2026 11:55:19 GMT
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+
+🟡 HOLD SIGNAL — ETH/USDT
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+Entry Price:    $2,127.14
+Take Profit 1:  $2,168.01 (+1.92%)
+Take Profit 2:  $2,208.88 (+3.84%)
+Stop Loss:      $2,086.27 (-1.92%)
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+Confidence:     60%
+Timeframe:      short term
+24h Change:     0.56%
+Risk/Reward:    1
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+Reason:
+ETH shows minimal 24h change with a neutral trend score, while the overall market is moderately bullish, indicating sideways movement.
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+Powered by Ace Data Cloud AI
+Generated: Fri, 22 May 2026 11:55:25 GMT
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+
+🟡 HOLD SIGNAL — SOL/USDT
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+Entry Price:    $87.14
+Take Profit 1:  $89.63 (+2.86%)
+Take Profit 2:  $92.12 (+5.71%)
+Stop Loss:      $84.66 (-2.85%)
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+Confidence:     70%
+Timeframe:      short term
+24h Change:     1.81%
+Risk/Reward:    1
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+Reason:
+The neutral trend score and modest price change indicate a lack of strong momentum.
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+Powered by Ace Data Cloud AI
+Generated: Fri, 22 May 2026 11:55:28 GMT
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━

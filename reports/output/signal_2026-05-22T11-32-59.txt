@@ -1,0 +1,64 @@
+
+===================================
+   CRYPTO SIGNAL AGENT REPORT
+   Fri, 22 May 2026 11:32:59 GMT
+===================================
+
+🟢 BUY SIGNAL — BTC/USDT
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+Entry Price:    $77,243
+Take Profit 1:  $78,790.67 (+2%)
+Take Profit 2:  $80,338.33 (+4.01%)
+Stop Loss:      $75,696.04 (-2%)
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+Confidence:     75%
+Timeframe:      short term
+24h Change:     -0.00%
+Risk/Reward:    1
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+Reason:
+BTC shows a bullish trend with a strong trend score and the overall market is also bullish, indicating upward momentum.
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+Powered by Ace Data Cloud AI
+Generated: Fri, 22 May 2026 11:32:47 GMT
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+
+🟡 HOLD SIGNAL — ETH/USDT
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+Entry Price:    $2,122.72
+Take Profit 1:  $2,160.05 (+1.76%)
+Take Profit 2:  $2,197.38 (+3.52%)
+Stop Loss:      $2,085.39 (-1.76%)
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+Confidence:     70%
+Timeframe:      short term
+24h Change:     0.34%
+Risk/Reward:    1
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+Reason:
+The neutral trend score and minor price change indicate a lack of significant movement in either direction.
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+Powered by Ace Data Cloud AI
+Generated: Fri, 22 May 2026 11:32:51 GMT
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+
+🟡 HOLD SIGNAL — SOL/USDT
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+Entry Price:    $86.79
+Take Profit 1:  $88.91 (+2.44%)
+Take Profit 2:  $91.03 (+4.89%)
+Stop Loss:      $84.67 (-2.44%)
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+Confidence:     68%
+Timeframe:      short term
+24h Change:     1.25%
+Risk/Reward:    1
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+Reason:
+Neutral trend score of 50/100 despite a mildly bullish overall market and modest 24h gain suggests consolidation rather than a clear directional breakout.
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+Powered by Ace Data Cloud AI
+Generated: Fri, 22 May 2026 11:32:59 GMT
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
