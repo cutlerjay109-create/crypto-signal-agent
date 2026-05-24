@@ -871,3 +871,45 @@
 [2026-05-22T16:05:21.964Z] [INFO] Explorer: https://explorer.oobeprotocol.ai/agents/HXyv3RHndummXVjMcXTRaQo1L1sQtxutQtbgfnVC2Hxg
 [2026-05-22T16:05:21.965Z] [INFO] Press CTRL+C to stop
 [2026-05-22T16:05:21.966Z] [INFO] ==================================================
+[2026-05-24T05:14:34.811Z] [INFO] ==================================================
+[2026-05-24T05:14:34.820Z] [INFO]   CRYPTO SIGNAL AGENT x402 STARTING UP
+[2026-05-24T05:14:34.822Z] [INFO] ==================================================
+[2026-05-24T05:14:34.823Z] [INFO] Mode: LIVE (USDC x402)
+[2026-05-24T05:14:34.824Z] [INFO] Schedule: Every 360 minutes
+[2026-05-24T05:14:34.825Z] [INFO] Wallet: HXyv3RHndummXVjMcXTRaQo1L1sQtxutQtbgfnVC2Hxg
+[2026-05-24T05:14:34.826Z] [INFO] Registering agent on SAP mainnet...
+[2026-05-24T05:14:34.829Z] [INFO] Starting agent registration on SAP mainnet...
+[2026-05-24T05:14:35.063Z] [INFO] Wallet loaded: HXyv3RHndummXVjMcXTRaQo1L1sQtxutQtbgfnVC2Hxg
+[2026-05-24T05:14:36.155Z] [INFO] Agent already registered: HXyv3RHndummXVjMcXTRaQo1L1sQtxutQtbgfnVC2Hxg
+[2026-05-24T05:14:36.158Z] [INFO] Agent: Already registered ✅
+[2026-05-24T05:14:36.160Z] [INFO] Running first cycle immediately...
+[2026-05-24T05:14:36.279Z] [INFO] Discovery client initialized
+[2026-05-24T05:14:36.280Z] [INFO] Discovering tools on SAP network...
+[2026-05-24T05:14:36.281Z] [INFO] Tool discovery completed
+[2026-05-24T05:14:36.350Z] [INFO] Sentinel client initialized
+[2026-05-24T05:14:36.351Z] [INFO] Calling Synapse Sentinel agent service...
+[2026-05-24T05:14:36.353Z] [INFO] Sentinel address: Ccr2yK3hLALU4p8oNRqrh4dGuvPJTth5KCLMio8cE1ph
+[2026-05-24T05:14:36.355Z] [INFO] Sentinel call recorded successfully
+[2026-05-24T05:14:37.084Z] [INFO] Escrow client initialized
+[2026-05-24T05:14:37.086Z] [INFO] Setting up real on-chain escrow...
+[2026-05-24T05:14:37.306Z] [INFO] Creating new escrow on-chain...
+[2026-05-24T05:14:38.502Z] [ERROR] Escrow setup failed: Invalid arguments
+[2026-05-24T05:14:38.503Z] [WARN] Escrow not available - skipping settlement
+[2026-05-24T05:14:38.505Z] [INFO] Fetching live crypto prices from CoinGecko...
+[2026-05-24T05:14:39.370Z] [INFO] Prices - BTC: $76644 | ETH: $2116.31 | SOL: $85.73
+[2026-05-24T05:14:39.381Z] [INFO] Making x402 request to: https://api.acedata.cloud/serp/google
+[2026-05-24T05:14:41.750Z] [INFO] 402 received - processing x402 Solana payment...
+[2026-05-24T05:14:41.753Z] [INFO] Payment required: 0.000952 USDC
+[2026-05-24T05:14:42.782Z] [INFO] USDC payment TX: 3x9XjwJZGNiWudAHGgY852pyLEYd4SDg17AhDJuPoRr8mdbQPE34XUAinXbgoqNKgEGULUZjR7aMVXhchLqkCrED
+[2026-05-24T05:14:42.784Z] [INFO] x402 USDC payment sent on-chain ✅
+[2026-05-24T05:14:42.786Z] [INFO] Payment header signed ✅
+[2026-05-24T05:14:44.781Z] [INFO] x402 request complete - status: 200
+[2026-05-24T05:14:44.784Z] [INFO] Sending news to Gemini via x402...
+[2026-05-24T05:14:44.788Z] [INFO] Making x402 request to: https://api.acedata.cloud/v1/chat/completions
+[2026-05-24T05:14:48.236Z] [INFO] 402 received - processing x402 Solana payment...
+[2026-05-24T05:14:48.238Z] [INFO] Payment required: 0.095215 USDC
+[2026-05-24T05:25:49.325Z] [INFO] Escrow client initialized
+[2026-05-24T05:25:49.350Z] [INFO] Setting up real on-chain escrow...
+[2026-05-24T05:25:50.440Z] [INFO] Creating new escrow on-chain...
+[2026-05-24T05:25:51.011Z] [INFO] Escrow created on-chain! TX: 2sm9egaH78fmLYqsmKceRnfVav44a3bpb7SpYB2bc12LihbFQnnw9io4mXe7VpCd7YDzYkBuGJ79LzpSfw3NgrTR
+[2026-05-24T05:25:51.013Z] [INFO] Escrow PDA: ECzxuP96V5EsDTcTiHcGoKnQoFi4i6U7WqC9765KZVcU
