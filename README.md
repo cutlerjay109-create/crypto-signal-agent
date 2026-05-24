@@ -9,11 +9,13 @@
 CryptoSignalAgent is a fully autonomous on-chain agent registered on Synapse Agent Protocol (SAP) mainnet that:
 
 - Registers on SAP mainnet and calls Synapse Sentinel every cycle
+- Publishes CryptoSignalTool on SAP network for other agents to discover
 - Fetches real crypto news via Ace Data Cloud Google SERP API
 - Analyzes market sentiment via Ace Data Cloud Gemini 2.5 Flash
 - Generates BUY/SELL/HOLD signals via Ace Data Cloud GPT-4o-mini
 - Settles payments via SAP escrow on Solana (Category 1)
 - Settles payments via x402 USDC on Solana (Category 2)
+- Serves real-time signals via HTTP API
 - Verifies signals mathematically with TP/SL calculations
 - Runs every 6 hours without any human intervention
 
@@ -39,11 +41,56 @@ This project submits for **both categories**:
 | AgentPDA | 5y8Dz8cAFo1PbR51QyqA7qZpFJcAi95oVnsykeCaQP8W |
 | AgentStats | 8od1hYRT8FK4YBEe2UYZnNp2vz25YSiutC8vfjekNxd |
 | StakePDA | DQZxj56X43dkr7U1nvkcBQZ3e5VAdbhgdBdi1YhmwXv5 |
+| ToolPDA | BXxTsk9BfdMGvJZHKaD5jeQnS9yE243kXrAkL4ncQ8Hr |
 | Stake | 0.1 SOL ✅ Active |
 | Network | Solana Mainnet |
 | Schedule | Every 6 hours |
 | SDK Version | @oobe-protocol-labs/synapse-sap-sdk v0.18.0 |
 | SAP Explorer | https://explorer.oobeprotocol.ai/agents/HXyv3RHndummXVjMcXTRaQo1L1sQtxutQtbgfnVC2Hxg |
+
+---
+
+## CryptoSignalTool — Published on SAP Network
+
+Our agent publishes a tool on the SAP network that other agents can discover and call to get real-time crypto signals.
+
+| Field | Value |
+|---|---|
+| Tool Name | CryptoSignalTool |
+| Tool PDA | BXxTsk9BfdMGvJZHKaD5jeQnS9yE243kXrAkL4ncQ8Hr |
+| Input Schema | `{ coin: "BTC" \| "ETH" \| "SOL" }` |
+| Output Schema | `{ signal, entry, tp1, tp2, sl, rr, confidence }` |
+| HTTP API | GET /signal?coin=BTC |
+
+### Signal API Endpoints
+
+```bash
+# Get signal for specific coin
+GET /signal?coin=BTC
+
+# Get all signals
+GET /signals
+
+# Health check
+GET /health
+```
+
+### Sample API Response
+
+```json
+{
+  "signal": "BUY",
+  "entry": 76595,
+  "tp1": 79324.8,
+  "tp2": 82054.61,
+  "sl": 74164.67,
+  "rr": 1.12,
+  "confidence": 70,
+  "coin": "BTC",
+  "generatedBy": "CryptoSignalAgent",
+  "poweredBy": "Ace Data Cloud AI"
+}
+```
 
 ---
 
@@ -74,7 +121,7 @@ Step 7: GPT-4o-mini → Generate BUY/SELL/HOLD signal for SOL
          ↓
 Step 8: Mathematical verification of TP/SL levels
          ↓
-Step 9: Signal report saved with timestamp
+Step 9: Signal report saved + served via HTTP API
          ↓
 REPEAT — No human input required at any step
 ```
@@ -212,6 +259,7 @@ Powered by Ace Data Cloud AI
 | AgentPDA | 5y8Dz8cAFo1PbR51QyqA7qZpFJcAi95oVnsykeCaQP8W | https://explorer.solana.com/address/5y8Dz8cAFo1PbR51QyqA7qZpFJcAi95oVnsykeCaQP8W |
 | AgentStats | 8od1hYRT8FK4YBEe2UYZnNp2vz25YSiutC8vfjekNxd | https://explorer.solana.com/address/8od1hYRT8FK4YBEe2UYZnNp2vz25YSiutC8vfjekNxd |
 | StakePDA | DQZxj56X43dkr7U1nvkcBQZ3e5VAdbhgdBdi1YhmwXv5 | https://explorer.solana.com/address/DQZxj56X43dkr7U1nvkcBQZ3e5VAdbhgdBdi1YhmwXv5 |
+| ToolPDA | BXxTsk9BfdMGvJZHKaD5jeQnS9yE243kXrAkL4ncQ8Hr | https://explorer.solana.com/address/BXxTsk9BfdMGvJZHKaD5jeQnS9yE243kXrAkL4ncQ8Hr |
 
 ### All Transactions
 
@@ -219,6 +267,9 @@ Powered by Ace Data Cloud AI
 |---|---|---|
 | Registration | Agent registered on SAP mainnet | https://explorer.solana.com/tx/4FbmtFgLLfhf22A5bHDa4N9eEo8Xh9ByUCyT6zUjLajQB97g27VG9khLdc9qsU8q7nHJPMwDvZDhjcK4ykjgsCUV |
 | Stake | 0.1 SOL staked to SAP program | https://explorer.solana.com/tx/4utySHp8z3DoNLQbyyPwqek4TRrcbzHFeRFJWSAH5sKRy67x4tnU7LZEL93HgfAEjbUoTCe69g1TdqyGG4BKcpni |
+| Tool Published | CryptoSignalTool published on SAP | https://explorer.solana.com/tx/63kcQrqLwgZRpZkBbuZmWozi16AEhSmjc4HWX7PGqCR2LXUzbmzpJ4sbGJkEuEQHpQ4Ybab3M4Q6UPdjkVDa5uuz |
+| Schema Input | Input schema inscribed on-chain | https://explorer.solana.com/tx/4rSDzoe4XZ6PcjA3GwpgojsiF7kJ61bhrFcSx3HxFYs4rj7zUaimDnF1X9yK15ZsfV8DRBNcvBChimeWY9FojncR |
+| Schema Output | Output schema inscribed on-chain | https://explorer.solana.com/tx/oD9X72WF1TUDwDHDXmNJamvzy9n9HYYKLa8h85DKtGJ2ZGew63mZe5sdudhr4XBa6xTNmCZn2qhcu24PsAh2m9y |
 | x402 SERP | Google SERP API paid 0.000952 USDC via Synapse RPC | https://explorer.solana.com/tx/5DXNX2eJnmEMnady6wTKKXZAu5W5dYDg46a57xkmyV8NsCCFzvKUCHS7z2FrBbJe2asmGBV3EJ7BaCmY8cxfsdKK |
 | x402 Gemini | Gemini 2.5 Flash paid 0.095215 USDC via Synapse RPC | https://explorer.solana.com/tx/XbqomXqC3GYdY997XUbjcN2RmUABGpFtrxQxMjdbfjFKGLHi7PorzqnwJR5j36aLofYrpYELWjs5DTxauBcqFGz |
 | x402 GPT BTC | GPT-4o-mini BTC signal paid 0.095215 USDC via Synapse RPC | https://explorer.solana.com/tx/2c5SP27pZV75owd793B9B2VArrU3ABaZStx9yMEcKMYARMYY6atajpNbbvn3eim6soL9bFQ5gnW6FXZy6f5PHese |
@@ -235,6 +286,7 @@ Powered by Ace Data Cloud AI
 |---|---|
 | Agent Registration | SAP SDK v0.18.0 |
 | Tool Discovery | Synapse Agent Protocol |
+| Tool Publishing | CryptoSignalTool on SAP network |
 | Sentinel | Synapse Sentinel |
 | Escrow Payments | SAP Escrow v0.18.0 (Category 1) |
 | RPC Execution | Synapse RPC (OOBE Protocol) |
@@ -242,6 +294,7 @@ Powered by Ace Data Cloud AI
 | Sentiment Analysis | Ace Data Cloud Gemini 2.5 Flash |
 | Signal Generation | Ace Data Cloud GPT-4o-mini |
 | x402 Payments | @acedatacloud/x402-client Solana USDC |
+| Signal API | Express.js HTTP server |
 | Price Data | CoinGecko API |
 | Blockchain | Solana Mainnet |
 | Language | Node.js |
@@ -271,11 +324,14 @@ crypto-signal-agent/
 │   ├── signals/
 │   │   ├── generator.js         # Mathematical TP/SL verification
 │   │   └── formatter.js         # Signal report formatting
+│   ├── server.js                # HTTP API server for CryptoSignalTool
 │   ├── index.js                 # Credit mode entry point
 │   └── index_x402.mjs           # x402 USDC mode entry point
 ├── config/
 │   ├── sap.config.js            # SAP configuration
 │   └── acedata.config.js        # Ace Data Cloud configuration
+├── publish_tool.js              # Script to publish CryptoSignalTool on SAP
+├── inscribe_schema.js           # Script to inscribe tool schemas on SAP
 ├── close_agent_fixed.js         # Script to close SAP agent and recover SOL
 ├── close_vault.js               # Script to close vault (run before close_agent)
 └── README.md
@@ -315,6 +371,9 @@ npm run start:live
 
 # Credit mode (testing — uses API credits)
 npm start
+
+# Signal API server
+npm run start:server
 ```
 
 ---
@@ -335,18 +394,19 @@ AGENT_CLOSE_CONFIRM=YES node close_agent_fixed.js
 
 ## Known Issues
 
-### Explorer Not Showing Registration
+### Explorer Display After v0.18.0 Update
 
 **Affects:** Visual display on Synapse Explorer
 
-**Issue:** The Synapse Explorer shows "Wallet not registered" despite all agent accounts existing on-chain and being owned by the SAP program.
+**Issue:** After updating to SDK v0.18.0 the explorer shows stake as 0.0000 and tools as 0 published despite all accounts existing on-chain.
 
 **On-chain proof:**
-- AgentPDA exists: ✅ owned by SAPpUhsWLJG1FfkGRcXagEDMrMsWGjbky7AyhGpFETZ
-- AgentStats exists: ✅ owned by SAPpUhsWLJG1FfkGRcXagEDMrMsWGjbky7AyhGpFETZ
-- StakePDA exists: ✅ owned by SAPpUhsWLJG1FfkGRcXagEDMrMsWGjbky7AyhGpFETZ
+- StakePDA exists: ✅ 0.1018 SOL confirmed via RPC
+- ToolPDA exists: ✅ BXxTsk9BfdMGvJZHKaD5jeQnS9yE243kXrAkL4ncQ8Hr
+- Input schema: ✅ TX confirmed on Solana
+- Output schema: ✅ TX confirmed on Solana
 
-**Status:** Reported to @OOBEonSol. Explorer indexing issue.
+**Status:** Reported to @OOBEonSol. Explorer indexing issue after v0.18.0 update.
 
 ---
 
