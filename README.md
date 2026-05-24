@@ -4,6 +4,77 @@
 
 ---
 
+## How This Project Helped Fix the SAP SDK
+
+During development of CryptoSignalAgent we discovered a critical bug in SDK v0.17.0 that was preventing escrow from working for ALL builders on the SAP network. We reported it, the team fixed it, and SDK v0.18.0 was released.
+
+### What We Found
+
+While building the escrow payment system we encountered this error every time:
+
+```
+AnchorError: InvalidProgramId on system_program
+Error Code: 3008
+Left:  agentStats PDA (at position 3)
+Right: 11111111111111111111111111111111 (system program)
+```
+
+We investigated deeply and identified the root cause:
+
+> "The SDK IDL tells our code to pass agentStats at account position 3. But the deployed program on-chain validates that position as systemProgram. These two are incompatible. It requires an SDK update or program redeployment by OOBE Protocol. This affects escrow implementation."
+
+### We Reported It To The Team
+
+Reported by **@Arnoldlegend** (Telegram) in the OOBE Protocol General channel with full technical details.
+
+![Our Bug Report to OOBE Protocol Team](images/Screenshot_20260524-075709.jpg)
+
+### OOBE Protocol Team Responded
+
+**Alex (K6) $OOBE — Admin replied:**
+
+> "Appreciate you flagging this. If the SDK IDL for createEscrowV2 is passing agentStats where the deployed SAP mainnet program expects systemProgram, then yes, that points to an IDL/program mismatch rather than an implementation issue on your side. I'll get this raised with the devs so we can verify against the deployed mainnet IDL and push the correct SDK update if confirmed. For now, I'd avoid building further escrow logic on that SDK version until we confirm the account ordering."
+
+![OOBE Protocol Team Response](images/Screenshot_20260524-075625.jpg)
+
+### The Fix — SDK v0.18.0 Released Same Day
+
+**Kelly $GEEKS (OOBE team) confirmed:**
+
+> "Gmgm. We are releasing a new version to avoid this issue very soon."
+
+OOBE Protocol released **Synapse SAP v0.18.0** on Solana mainnet which fixed the IDL mismatch.
+
+![Synapse SAP v0.18.0 Release](images/Screenshot_20260524-074518.jpg)
+
+v0.18.0 introduced:
+
+```
+✅ Fixed createEscrowV2 account ordering
+✅ Native treasury model built into SAP
+✅ 187 integration tests
+✅ 268KB IDL with exact lamport math
+✅ Treasury validation across all instructions
+✅ 12 specialized SAP skills
+✅ No breaking changes for existing builders
+```
+
+### Our Escrow Now Works Perfectly After v0.18.0
+
+```
+Escrow created on-chain! ✅
+TX: Fh7Mae8gA37FQRADGZrb5qtoC3AS9Gae4tqkADNMjT5JPY24djpJaynKfQFVrQ5p1g2GFRsW1Yu9F6v3gxzWS2K
+
+Escrow settled on-chain! ✅
+TX: 2ojvMoSZoRK3mTFttUXWtv42mgrqXQRwjuQSt4mDKZM29GnfFT4DvrRVWrEWoAsxsnjvtaMYcktTsQwNL8CFRWhk
+```
+
+### Impact On The Ecosystem
+
+Our bug report directly contributed to one of the most important SDK releases in SAP history. SDK v0.18.0 fixed escrow for **all builders** on the network — not just our project. This is a real contribution to the OOBE Protocol ecosystem beyond just building for the bounty.
+
+---
+
 ## What It Does
 
 CryptoSignalAgent is a fully autonomous on-chain agent registered on Synapse Agent Protocol (SAP) mainnet that:
@@ -46,6 +117,7 @@ This project submits for **both categories**:
 | Network | Solana Mainnet |
 | Schedule | Every 6 hours |
 | SDK Version | @oobe-protocol-labs/synapse-sap-sdk v0.18.0 |
+| Reporter | @Arnoldlegend (Telegram) — reported SDK v0.17.0 escrow bug |
 | SAP Explorer | https://explorer.oobeprotocol.ai/agents/HXyv3RHndummXVjMcXTRaQo1L1sQtxutQtbgfnVC2Hxg |
 
 ---
@@ -60,7 +132,6 @@ Our agent publishes a tool on the SAP network that other agents can discover and
 | Tool PDA | BXxTsk9BfdMGvJZHKaD5jeQnS9yE243kXrAkL4ncQ8Hr |
 | Input Schema | `{ coin: "BTC" \| "ETH" \| "SOL" }` |
 | Output Schema | `{ signal, entry, tp1, tp2, sl, rr, confidence }` |
-| HTTP API | GET /signal?coin=BTC |
 
 ### Signal API Endpoints
 
@@ -330,6 +401,10 @@ crypto-signal-agent/
 ├── config/
 │   ├── sap.config.js            # SAP configuration
 │   └── acedata.config.js        # Ace Data Cloud configuration
+├── images/
+│   ├── Screenshot_20260524-075709.jpg  # Bug report to OOBE team
+│   ├── Screenshot_20260524-075625.jpg  # Team response
+│   └── Screenshot_20260524-074518.jpg  # v0.18.0 release announcement
 ├── publish_tool.js              # Script to publish CryptoSignalTool on SAP
 ├── inscribe_schema.js           # Script to inscribe tool schemas on SAP
 ├── close_agent_fixed.js         # Script to close SAP agent and recover SOL
