@@ -27,7 +27,7 @@ We investigated deeply and identified the root cause:
 
 Reported by **@Arnoldlegend** (Telegram) in the OOBE Protocol General channel with full technical details.
 
-![Our Bug Report + Team Response](images/Screenshot_20260524-075709.jpg)
+![v0.18.0 Release Announcement](images/Screenshot_20260524-074518.jpg)
 
 ### OOBE Protocol Team Responded
 
@@ -45,7 +45,7 @@ Reported by **@Arnoldlegend** (Telegram) in the OOBE Protocol General channel wi
 
 OOBE Protocol released **Synapse SAP v0.18.0** on Solana mainnet which fixed the IDL mismatch.
 
-![Synapse SAP v0.18.0 Full Release Notes](images/Screenshot_20260524-074518.jpg)
+![Our Bug Report + Team Response](images/Screenshot_20260524-075709.jpg)
 
 v0.18.0 introduced:
 
