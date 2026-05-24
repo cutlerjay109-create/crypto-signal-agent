@@ -35,7 +35,7 @@ Reported by **@Arnoldlegend** (Telegram) in the OOBE Protocol General channel wi
 
 > "Appreciate you flagging this. If the SDK IDL for createEscrowV2 is passing agentStats where the deployed SAP mainnet program expects systemProgram, then yes, that points to an IDL/program mismatch rather than an implementation issue on your side. I'll get this raised with the devs so we can verify against the deployed mainnet IDL and push the correct SDK update if confirmed. For now, I'd avoid building further escrow logic on that SDK version until we confirm the account ordering."
 
-### The Fix — SDK v0.18.0 Released Same Day
+### The Fix — SDK v0.18.0 Released next Day
 
 **Kelly $GEEKS (OOBE team) confirmed:**
 
