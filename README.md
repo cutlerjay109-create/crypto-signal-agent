@@ -27,7 +27,7 @@ We investigated deeply and identified the root cause:
 
 Reported by **@Arnoldlegend** (Telegram) in the OOBE Protocol General channel with full technical details.
 
-![Our Bug Report to OOBE Protocol Team](images/Screenshot_20260524-075709.jpg)
+![Our Bug Report + Team Response](images/Screenshot_20260524-075709.jpg)
 
 ### OOBE Protocol Team Responded
 
@@ -35,17 +35,17 @@ Reported by **@Arnoldlegend** (Telegram) in the OOBE Protocol General channel wi
 
 > "Appreciate you flagging this. If the SDK IDL for createEscrowV2 is passing agentStats where the deployed SAP mainnet program expects systemProgram, then yes, that points to an IDL/program mismatch rather than an implementation issue on your side. I'll get this raised with the devs so we can verify against the deployed mainnet IDL and push the correct SDK update if confirmed. For now, I'd avoid building further escrow logic on that SDK version until we confirm the account ordering."
 
-![OOBE Protocol Team Response](images/Screenshot_20260524-075625.jpg)
-
 ### The Fix — SDK v0.18.0 Released Same Day
 
 **Kelly $GEEKS (OOBE team) confirmed:**
 
 > "Gmgm. We are releasing a new version to avoid this issue very soon."
 
+![Kelly Confirms Fix + v0.18.0 Announcement](images/Screenshot_20260524-075625.jpg)
+
 OOBE Protocol released **Synapse SAP v0.18.0** on Solana mainnet which fixed the IDL mismatch.
 
-![Synapse SAP v0.18.0 Release](images/Screenshot_20260524-074518.jpg)
+![Synapse SAP v0.18.0 Full Release Notes](images/Screenshot_20260524-074518.jpg)
 
 v0.18.0 introduced:
 
