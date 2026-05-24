@@ -37,7 +37,7 @@ Reported by **@Arnoldlegend** (Telegram) in the OOBE Protocol General channel wi
 
 ### The Fix — SDK v0.18.0 Released next Day
 
-**Kelly $GEEKS (OOBE team) confirmed:**
+**(OOBE team) confirmed:**
 
 > "Gmgm. We are releasing a new version to avoid this issue very soon."
 
