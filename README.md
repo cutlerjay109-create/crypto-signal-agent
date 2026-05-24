@@ -8,13 +8,13 @@
 
 CryptoSignalAgent is a fully autonomous on-chain agent registered on Synapse Agent Protocol (SAP) mainnet that:
 
-- Discovers tools via Synapse Agent Protocol (SAP)
-- Calls Synapse Sentinel every cycle
+- Registers on SAP mainnet and calls Synapse Sentinel every cycle
 - Fetches real crypto news via Ace Data Cloud Google SERP API
 - Analyzes market sentiment via Ace Data Cloud Gemini 2.5 Flash
 - Generates BUY/SELL/HOLD signals via Ace Data Cloud GPT-4o-mini
+- Settles payments via SAP escrow on Solana (Category 1)
+- Settles payments via x402 USDC on Solana (Category 2)
 - Verifies signals mathematically with TP/SL calculations
-- Settles payments via x402 USDC on Solana using Synapse RPC
 - Runs every 6 hours without any human intervention
 
 ---
@@ -42,6 +42,7 @@ This project submits for **both categories**:
 | Stake | 0.1 SOL ✅ Active |
 | Network | Solana Mainnet |
 | Schedule | Every 6 hours |
+| SDK Version | @oobe-protocol-labs/synapse-sap-sdk v0.18.0 |
 | SAP Explorer | https://explorer.oobeprotocol.ai/agents/HXyv3RHndummXVjMcXTRaQo1L1sQtxutQtbgfnVC2Hxg |
 
 ---
@@ -52,6 +53,7 @@ This project submits for **both categories**:
 TRIGGER (Every 6 hours — fully automated)
          ↓
 Step 1: SAP Network + Synapse Sentinel called (every cycle)
+         Escrow created and settled on-chain (Category 1)
          ↓
 Step 2: CoinGecko → Live prices BTC/ETH/SOL (free)
          ↓
@@ -79,6 +81,38 @@ REPEAT — No human input required at any step
 
 ---
 
+## x402 vs Escrow — Understanding Both Payment Systems
+
+### x402 — Our Agent Pays For Services
+```
+Our agent → pays Ace Data Cloud
+            for SERP, Gemini, GPT APIs
+
+Payment:   USDC on Solana
+Direction: Our wallet → Ace Data Cloud
+Purpose:   Pay for AI services we consume
+Cost:      0.381812 USDC per cycle
+```
+
+### Escrow — On-Chain Payment Settlement
+```
+Our agent → creates escrow on SAP network
+          → settles payment per service call
+
+Payment:   SOL locked in escrow on-chain
+Direction: Our wallet → SAP Escrow → settled
+Purpose:   On-chain payment volume on SAP
+Status:    Created and settled every cycle ✅
+```
+
+### The Key Difference
+```
+x402  = Pay Ace Data Cloud for AI services (Category 2)
+Escrow = On-chain payment volume on SAP (Category 1)
+```
+
+---
+
 ## Ace Data Cloud Services Used (3 Distinct)
 
 | # | Service | Purpose | x402 Cost Per Call |
@@ -96,29 +130,29 @@ Total x402 USDC cost per cycle: **~0.382 USDC**
 ```
 🟢 BUY SIGNAL — BTC/USDT
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-Entry Price:    $77,402
-Take Profit 1:  $80,046.30 (+3.42%)
-Take Profit 2:  $82,690.60 (+6.83%)
-Stop Loss:      $75,031.76 (-3.06%)
+Entry Price:    $76,595
+Take Profit 1:  $79,324.80 (+3.56%)
+Take Profit 2:  $82,054.61 (+7.13%)
+Stop Loss:      $74,164.67 (-3.17%)
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 Confidence:     70%
 Timeframe:      short term
-24h Change:     +1.42%
+24h Change:     +1.56%
 Risk/Reward:    1.12
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 Reason:
-Bullish trend score and positive 24h change
-indicate strong upward momentum in BTC price.
+The bullish trend score of 70 and a positive 24h
+change indicate upward momentum in the market.
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 Powered by Ace Data Cloud AI
 
 
 🟡 HOLD SIGNAL — ETH/USDT
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-Entry Price:    $2,132.31
-Take Profit 1:  $2,185.10 (+2.48%)
-Take Profit 2:  $2,237.89 (+4.95%)
-Stop Loss:      $2,079.52 (-2.48%)
+Entry Price:    $2,112.20
+Take Profit 1:  $2,181.40 (+3.28%)
+Take Profit 2:  $2,250.59 (+6.55%)
+Stop Loss:      $2,043.00 (-3.28%)
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 Confidence:     70%
 Timeframe:      short term
@@ -126,12 +160,12 @@ Risk/Reward:    1.0
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
 
-🔴 SELL SIGNAL — SOL/USDT
+🟡 HOLD SIGNAL — SOL/USDT
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-Entry Price:    $84.59
-Take Profit 1:  $81.21 (-4.00%)
-Take Profit 2:  $77.82 (-8.00%)
-Stop Loss:      $87.97 (+4.00%)
+Entry Price:    $85.55
+Take Profit 1:  $87.77 (+2.59%)
+Take Profit 2:  $89.98 (+5.18%)
+Stop Loss:      $83.34 (-2.58%)
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 Confidence:     65%
 Timeframe:      short term
@@ -148,26 +182,9 @@ Powered by Ace Data Cloud AI
 |---|---|---|
 | Registered on SAP mainnet | ✅ | TX confirmed on Solana |
 | Complete automated workflow | ✅ | Runs every 6 hours |
-| Use escrow for payments via Synapse RPC | ⚠️ | Blocked by SDK bug (see below) |
+| Use escrow for payments via Synapse RPC | ✅ | Working with SDK v0.18.0 |
 | At least one AI capability | ✅ | Gemini + GPT-4o-mini |
 | Use Synapse Sentinel at least once | ✅ | Called every cycle |
-
-### Why Escrow Did Not Work — SDK v0.17.0 Bug
-
-During development we discovered that `createEscrowV2` in SDK v0.17.0 has an IDL mismatch with the deployed SAP program on Solana mainnet.
-
-**Error received every time:**
-```
-AnchorError: InvalidProgramId on system_program
-Error Code: 3008
-Left:  agentStats PDA (should be in position 3)
-Right: 11111111111111111111111111111111 (system program)
-```
-
-**What this means:**
-The SDK IDL tells our code to pass `agentStats` at account position 3. But the deployed program on-chain validates that position as `systemProgram`. These two are incompatible and no amount of code changes on our side can fix this mismatch — it requires an SDK update or program redeployment by OOBE Protocol.
-
-We reported this bug to @OOBEonSol with full logs and are awaiting a fix.
 
 ---
 
@@ -207,6 +224,8 @@ We reported this bug to @OOBEonSol with full logs and are awaiting a fix.
 | x402 GPT BTC | GPT-4o-mini BTC signal paid 0.095215 USDC via Synapse RPC | https://explorer.solana.com/tx/2c5SP27pZV75owd793B9B2VArrU3ABaZStx9yMEcKMYARMYY6atajpNbbvn3eim6soL9bFQ5gnW6FXZy6f5PHese |
 | x402 GPT ETH | GPT-4o-mini ETH signal paid 0.095215 USDC via Synapse RPC | https://explorer.solana.com/tx/3Ep5jFpsoaqneFHnrc7x19Sf5p6thA9arSrpbStBpQ7b6UGz5rektrcz1eFjJgk6w6iwfWhE1x4JCMUJEzMxq6cz |
 | x402 GPT SOL | GPT-4o-mini SOL signal paid 0.095215 USDC via Synapse RPC | https://explorer.solana.com/tx/3nz1xDprPJ5RZ11cCD9Q8nMmHNAh4TTEALtMsPfWNVJeir8vj21FVpsogevoqkHMYhd7ZjStg1PoVRLTp7VrpLiq |
+| Escrow Create | SAP escrow created on-chain | https://explorer.solana.com/tx/Fh7Mae8gA37FQRADGZrb5qtoC3AS9Gae4tqkADNMjT5JPY24djpJaynKfQFVrQ5p1g2GFRsW1Yu9F6v3gxzWS2K |
+| Escrow Settle | SAP escrow settled on-chain | https://explorer.solana.com/tx/2ojvMoSZoRK3mTFttUXWtv42mgrqXQRwjuQSt4mDKZM29GnfFT4DvrRVWrEWoAsxsnjvtaMYcktTsQwNL8CFRWhk |
 
 ---
 
@@ -214,10 +233,11 @@ We reported this bug to @OOBEonSol with full logs and are awaiting a fix.
 
 | Component | Technology |
 |---|---|
-| Agent Registration | SAP SDK v0.17.0 |
+| Agent Registration | SAP SDK v0.18.0 |
 | Tool Discovery | Synapse Agent Protocol |
 | Sentinel | Synapse Sentinel |
-| RPC Execution | Synapse RPC (OOBE Protocol) — used for all on-chain execution |
+| Escrow Payments | SAP Escrow v0.18.0 (Category 1) |
+| RPC Execution | Synapse RPC (OOBE Protocol) |
 | News Fetching | Ace Data Cloud Google SERP API |
 | Sentiment Analysis | Ace Data Cloud Gemini 2.5 Flash |
 | Signal Generation | Ace Data Cloud GPT-4o-mini |
@@ -240,7 +260,7 @@ crypto-signal-agent/
 │   │   ├── workflow_x402.mjs    # x402 USDC workflow (main)
 │   │   └── sentinel.js          # Synapse Sentinel integration
 │   ├── payments/
-│   │   ├── escrow.js            # SAP escrow (blocked by SDK bug)
+│   │   ├── escrow.js            # SAP escrow v0.18.0 (Category 1)
 │   │   └── x402_usdc.mjs        # Real x402 USDC payments via Synapse RPC
 │   ├── acedata/
 │   │   ├── scraper.js           # Google SERP news fetching
@@ -299,24 +319,7 @@ npm start
 
 ---
 
-## Known Issues Reported To OOBE Protocol
-
-### 1. SAP Escrow SDK Bug (createEscrowV2)
-
-**Affects:** Category 1 escrow settlements
-
-**Error:**
-```
-AnchorError: InvalidProgramId on system_program
-Left:  agentStats PDA
-Right: 11111111111111111111111111111111
-```
-
-**Cause:** SDK v0.17.0 IDL does not match the deployed SAP program on-chain. The SDK passes `agentStats` at account position 3 but the deployed program expects `systemProgram` there. This affects `createEscrowV2`, `updateAgent`, and `closeAgent`.
-
-**Status:** Reported to @OOBEonSol. Awaiting SDK fix.
-
-### How To Close Your Agent And Recover SOL
+## How To Close Your Agent And Recover SOL
 
 If you need to close your agent and recover staked SOL:
 
@@ -328,7 +331,11 @@ node close_vault.js
 AGENT_CLOSE_CONFIRM=YES node close_agent_fixed.js
 ```
 
-### 2. Explorer Not Showing Registration
+---
+
+## Known Issues
+
+### Explorer Not Showing Registration
 
 **Affects:** Visual display on Synapse Explorer
 
