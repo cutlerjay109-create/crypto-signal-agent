@@ -402,9 +402,9 @@ crypto-signal-agent/
 │   ├── sap.config.js            # SAP configuration
 │   └── acedata.config.js        # Ace Data Cloud configuration
 ├── images/
-│   ├── Screenshot_20260524-075709.jpg  # Bug report to OOBE team
-│   ├── Screenshot_20260524-075625.jpg  # Team response
-│   └── Screenshot_20260524-074518.jpg  # v0.18.0 release announcement
+│   ├── Screenshot_20260524-074518.jpg  # Bug report to OOBE team
+│   ├── Screenshot_20260524-075625.jpg # Team response + fix confirmation
+│   └── Screenshot_20260524-075709.jpg  # v0.18.0 release announcement
 ├── publish_tool.js              # Script to publish CryptoSignalTool on SAP
 ├── inscribe_schema.js           # Script to inscribe tool schemas on SAP
 ├── close_agent_fixed.js         # Script to close SAP agent and recover SOL
