@@ -128,23 +128,24 @@ async function settleEscrowPayment(serviceData, calls = 1) {
     const agentStatsPda = Array.isArray(agentStatsPdaResult) ? agentStatsPdaResult[0] : agentStatsPdaResult;
 
     const escrowPda = escrowPdaAddress;
-    const receiptNonce = new BN(Date.now());
-
-    const receiptPdaResult = Pdas.getPendingSettlementPDA(escrowPda, receiptNonce);
-    const receiptPda = Array.isArray(receiptPdaResult) ? receiptPdaResult[0] : receiptPdaResult;
+    // serviceHash must be exactly 32 bytes
+    const crypto = require("crypto");
+    const serviceHash = Array.from(
+      crypto.createHash("sha256")
+        .update(serviceData + Date.now())
+        .digest()
+    );
 
     const ix = await client.methods.settleCallsV2(
       escrowNonce,
       new BN(calls),
-      receiptNonce,
-      Array(32).fill(0)
+      serviceHash
     )
     .accounts({
       wallet: keypair.publicKey,
       agent: agentPda,
       agentStats: agentStatsPda,
       escrow: escrowPda,
-      settlementReceipt: receiptPda,
       systemProgram: SystemProgram.programId,
     })
     .instruction();
